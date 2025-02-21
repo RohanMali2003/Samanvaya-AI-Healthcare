@@ -2,19 +2,24 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
     try {
+        console.log("Loaded Hugging Face API Key:", process.env.HUGGINGFACE_API_KEY);
+
         const { message } = await req.json();
 
-        const response = await fetch("https://api-inference.huggingface.co/models/meta-llama/Llama-3-70B-Instruct", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${process.env.HUGGINGFACE_API_KEY}`,
-            },
-            body: JSON.stringify({
-                inputs: message,
-                parameters: { max_new_tokens: 200 }, // Adjust token limit
-            }),
-        });
+        const response = await fetch(
+            "https://api-inference.huggingface.co/models/meta-llama/Meta-Llama-3-8B-Instruct",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${process.env.HUGGINGFACE_API_KEY}`,
+                },
+                body: JSON.stringify({
+                    inputs: message,
+                    parameters: { max_new_tokens: 200 },
+                }),
+            }
+        );
 
         if (!response.ok) {
             const errorText = await response.text();
