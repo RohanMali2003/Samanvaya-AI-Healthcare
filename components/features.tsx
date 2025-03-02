@@ -1,36 +1,37 @@
-import { Brain, HeartPulse, Lock, Users } from "lucide-react";
+import { Brain, HeartPulse, ShieldCheck, Stethoscope } from "lucide-react";
 
 const features = [
   {
-    name: "AI-Powered Relapse Prevention",
-    description: "Predict relapse risks in real time using wearable data and behavioral analysis.",
+    name: "AI-Powered Predictive Diagnostics",
+    description: "Early detection of potential health issues using AI-driven analysis of medical data.",
     icon: Brain,
   },
   {
-    name: "24/7 Mental Health Support",
-    description: "An empathetic AI chatbot providing continuous guidance and crisis intervention.",
-    icon: Users,
-  },
-  {
-    name: "Blockchain-Powered Prescription Security",
-    description: "Tamper-proof digital prescriptions ensuring medication safety and preventing misuse.",
-    icon: Lock,
-  },
-  {
     name: "Real-Time Health Monitoring",
-    description: "Seamless integration with smartwatches to track stress levels, sleep patterns, and heart rate variability.",
+    description: "Continuous tracking of vitals via smartwatches, providing instant health insights.",
     icon: HeartPulse,
   },
-]
+  {
+    name: "Secure & Verified Digital Prescriptions",
+    description: "Blockchain-powered prescription verification to prevent fraud and ensure authenticity.",
+    icon: ShieldCheck,
+  },
+  {
+    name: "AI-Driven Virtual Health Assistant",
+    description: "An intelligent chatbot offering preliminary diagnoses and guiding patients in real-time.",
+    icon: Stethoscope,
+  },
+];
 
 export default function Features() {
   return (
     <section className="container space-y-16 py-24 md:py-32">
       <div className="mx-auto max-w-[58rem] text-center">
-        <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl">          ReLive: Transforming Addiction Recovery with AI
+        <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl">
+          AI-Powered Healthcare at Your Fingertips
         </h2>
         <p className="mt-4 text-muted-foreground sm:text-lg">
-          Discover how ReLive empowers individuals with cutting-edge technology for relapse prevention and mental well-being.
+          Revolutionizing healthcare with real-time monitoring, predictive diagnostics, and secure prescriptions.
         </p>
       </div>
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
@@ -45,6 +46,5 @@ export default function Features() {
         ))}
       </div>
     </section>
-  )
+  );
 }
-

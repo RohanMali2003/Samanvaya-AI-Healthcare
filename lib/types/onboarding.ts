@@ -3,22 +3,24 @@ export interface OnboardingFormData {
   name: string;
   age: number;
   gender?: 'male' | 'female' | 'other' | 'prefer-not-to-say';
-  livingSituation: 'alone' | 'with-family' | 'with-friends' | 'recovery-facility';
+  livingSituation: 'alone' | 'with-family' | 'with-friends' | 'care-facility';
 
   // Health & Medical History
   medicalConditions: string[];
   takingMedications: boolean;
-  hasSubstanceUseDisorder: boolean;
-  substanceTypes?: ('alcohol' | 'opioids' | 'tobacco' | string)[];
+  wearableDeviceConnected: boolean;
+  hasChronicIllness: boolean;
+  chronicIllnessTypes?: ('diabetes' | 'hypertension' | 'heart-disease' | string)[];
 
-  // Addiction & Recovery Journey
-  recoveryDuration: string;
-  hadRelapse: boolean;
-  relapseTriggers: string[];
+  // Health Monitoring & Alerts
+  tracksHeartRate: boolean;
+  tracksSpO2: boolean;
+  tracksStressLevels: boolean;
+  emergencyAlertsEnabled: boolean;
 
   // Support System
-  hasCounselor: boolean;
-  connectWithSupport: boolean;
+  hasDoctor: boolean;
+  connectWithCaregiver: boolean;
   emergencyContact: {
     name: string;
     contact: string;
@@ -28,11 +30,11 @@ export interface OnboardingFormData {
   stressLevel: 'low' | 'moderate' | 'high';
   sleepHours: number;
   physicalActivity: 'daily' | 'few-times-week' | 'rarely';
-  useWearables: boolean;
+  dietPreference?: 'balanced' | 'vegetarian' | 'keto' | 'other';
 
-  // Recovery Goals
-  primaryGoals: ('stay-sober' | 'improve-mental-health' | 'build-social-support' | string)[];
-  setMilestoneReminders: boolean;
+  // Health Goals
+  primaryGoals: ('improve-heart-health' | 'manage-stress' | 'better-sleep' | 'prevent-chronic-illness' | string)[];
+  setHealthReminders: boolean;
 
   // Privacy & Preferences
   acceptAiSuggestions: boolean;
@@ -42,8 +44,8 @@ export interface OnboardingFormData {
 export type OnboardingStep =
   | 'basic-info'
   | 'health-history'
-  | 'addiction-journey'
+  | 'health-monitoring'
   | 'support-system'
   | 'lifestyle'
-  | 'recovery-goals'
+  | 'health-goals'
   | 'privacy';

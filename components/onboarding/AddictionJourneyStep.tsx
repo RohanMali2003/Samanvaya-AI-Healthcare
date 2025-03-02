@@ -26,7 +26,6 @@ export default function AddictionJourneyStep({
     defaultValues: data
   })
 
-
   const onSubmit = (formData: AddictionJourneyStepProps['data']) => {
     updateFields(formData)
     onNext()
@@ -36,7 +35,7 @@ export default function AddictionJourneyStep({
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div className="space-y-4">
         <div>
-          <Label>How long have you been in recovery?</Label>
+          <Label>How long have you been monitoring your health?</Label>
           <Select {...register('recoveryDuration')} className="mt-2">
             <option value="">Select duration</option>
             <option value="less-than-month">Less than a month</option>
@@ -54,22 +53,22 @@ export default function AddictionJourneyStep({
             id="hadRelapse"
           />
           <Label htmlFor="hadRelapse">
-            Have you experienced a relapse before?
+            Have you experienced any critical health issues before?
           </Label>
         </div>
 
         <div>
-          <Label>What triggers do you believe contribute to relapse for you?</Label>
+          <Label>What factors do you believe impact your health?</Label>
           <div className="space-y-2 mt-2">
             {[
               'Stress',
-              'Loneliness',
-              'Social situations',
-              'Financial pressure',
-              'Work stress',
-              'Family issues',
-              'Depression',
-              'Anxiety'
+              'Lack of Sleep',
+              'Unhealthy Diet',
+              'Physical Inactivity',
+              'Workload',
+              'Family History',
+              'Mental Health Issues',
+              'Chronic Conditions'
             ].map((trigger) => (
               <div key={trigger} className="flex items-center space-x-2">
                 <Checkbox
@@ -82,7 +81,7 @@ export default function AddictionJourneyStep({
             ))}
             <Input
               {...register('otherTriggers')}
-              placeholder="Other triggers - Please specify"
+              placeholder="Other factors - Please specify"
               className="mt-2"
             />
           </div>

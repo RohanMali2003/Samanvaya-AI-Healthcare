@@ -20,12 +20,11 @@ export default function PrivacyStep({
   updateFields,
   onNext,
 }: PrivacyStepProps) {
-  const { register, handleSubmit } = useForm({
+  const { handleSubmit } = useForm({
     defaultValues: data
   })
 
-  const onSubmit = (formData: PrivacyStepProps['data']) => {
-    updateFields(formData)
+  const onSubmit = () => {
     onNext()
   }
 
@@ -37,8 +36,11 @@ export default function PrivacyStep({
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <Checkbox
-                  {...register('acceptAiSuggestions')}
                   id="acceptAiSuggestions"
+                  checked={data.acceptAiSuggestions}
+                  onCheckedChange={(checked) =>
+                    updateFields({ acceptAiSuggestions: Boolean(checked) })
+                  }
                 />
                 <div>
                   <Label htmlFor="acceptAiSuggestions" className="text-base">
@@ -53,8 +55,11 @@ export default function PrivacyStep({
 
               <div className="flex items-center space-x-2">
                 <Checkbox
-                  {...register('shareAnonymousData')}
                   id="shareAnonymousData"
+                  checked={data.shareAnonymousData}
+                  onCheckedChange={(checked) =>
+                    updateFields({ shareAnonymousData: Boolean(checked) })
+                  }
                 />
                 <div>
                   <Label htmlFor="shareAnonymousData" className="text-base">

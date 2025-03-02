@@ -19,12 +19,15 @@ export default function Navbar() {
           <Link href="/chatbot" className="transition-colors hover:text-primary">
             Chat with AI
           </Link>
+          <Link href="/diagnostics" className="transition-colors hover:text-primary">
+            Diagnostics
+          </Link>
           <Link href="https://docs.google.com/presentation/d/1ITZDRjiCUzMF_g_-1QC-or_0GGXeB0s__rYWMFnI5t4/edit?usp=sharing" className="transition-colors hover:text-primary">
             About Us
           </Link>
         </nav>
         <div className="flex items-center space-x-4">
-          <Link href="https://github.com/RohanMali2003/BuildathonPrototype" target="_blank" rel="noreferrer">
+          <Link href="https://github.com/RohanMali2003/Samanvaya-AI-Healthcare" target="_blank" rel="noreferrer">
             <Button variant="ghost" size="icon">
               <Github className="h-4 w-4" />
               <span className="sr-only">GitHub</span>
